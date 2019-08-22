@@ -19,8 +19,12 @@ class client(Thread):
         self.addr = address
         self.start()
     def run(self):
-        while 1:
-            r=input("Send data -->")
+        i = 0 
+        t = time.time()
+        frames = 5
+        while(i < frames):
+            #r=input("Send data -->")
+            r = '5'
             clientsocket.send(r.encode())
             acknowledged = False
             while not acknowledged:
@@ -30,6 +34,15 @@ class client(Thread):
                 except socket.timeout:
                     print("Timed out trying Again")
                     clientsocket.send(r.encode())
+            i=i+1
+        elapsed = time.time() - t
+        if(elapsed == 0):
+            elapsed = 1
+        throuhput = frames / elapsed
+        print("Throughput:")
+        print(throuhput)
+
+        
 
 serversocket.listen(5)
 print ('Sender ready and is listening')
