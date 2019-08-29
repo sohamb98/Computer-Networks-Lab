@@ -25,7 +25,7 @@ s.listen(5)
 print ("socket is listening")
 
 
-message = ['S','O','H','A','M','B','H','A','T','T','A','C','H','A','R','Y','A']
+message = ['S','O','H','A','M','B','H','A','T','T','A','C','H','A','R','Y']
 ack = [False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False]
 
 
